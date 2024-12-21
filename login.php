@@ -1,13 +1,21 @@
 <?php
-    header("Access-Control-Allow-Origin: *");
-    header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
-    header("Access-Control-Allow-Headers: Content-Type, Authorization");
+    header("Access-Control-Allow-Origin: http://localhost:3000"); // Allow requests from your frontend
+    header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS"); // Allowed methods
+    header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With"); // Custom headers
+    header("Access-Control-Allow-Credentials: true"); // If you need cookies or authentication
+
+    if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+        header("HTTP/1.1 200 OK");
+        exit();
+    }    
+
+    
 
     try {
-        $dsn = "mysql:host=sql12.freesqldatabase.com;port=3306;dbname=sql12752944";
-        $username = "sql12752944";
-        $password = "9w5Eq9LF97";
-    
+        $dsn = "mysql:host=sql211.infinityfree.com;port=3306;dbname=if0_37946139_taskmanagement";
+        $username = "if0_37946139";
+        $password = "HXobTcuXon59";
+
         // Create a PDO instance
         $conn = new PDO($dsn, $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
